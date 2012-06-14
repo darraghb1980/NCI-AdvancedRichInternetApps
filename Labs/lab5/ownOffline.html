@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Lab5 Part 1 offline or online? </title>
+		
+	</head>
+	<body>
+		<!--Part 3-->
+		<p>Current Network Status: <span id="status">Checking Status...</span></p>
+		
+		<!--part 5-->
+		<script>
+		var statusElem = document.getElementById('status');
+		setInterval(function () {
+		statusElem.className = navigator.onLine ? 'online' : 'offline';
+		statusElem.innerHTML = navigator.onLine ? 'online' : 'offline';  
+		}, 250);
+		</script>
+	
+	</body>
+	
+</html>

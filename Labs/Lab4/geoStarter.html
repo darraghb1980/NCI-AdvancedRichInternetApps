@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Geolocation API Features Tester</title>
+	<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+	<script>
+		
+	if (navigator.geolocation) {  
+		alert("Geolocation is available.");  
+	} else {  
+	  alert("I'm sorry, but geolocation services are not supported by your browser.");  
+	}
+	
+	//step4
+	$(document).ready(function(){
+	//wire up button click
+	$('#go').click(function(){
+	//test geolocation
+	if(navigator && navigator.geolocation){
+	navigator.geolocation.getCurrentPosition(geo_success, geo_error);
+	}
+	else{
+	error('Geolocation is not supported.');
+	}
+	});
+	});
+	
+	//step5
+	function geo_error(err){
+		if (err.code == 1){
+			error('The user denied the request for location information.')
+			}else if(err.code == 2){
+			error('Your location information is unavailable')
+			}else if(err.code == 3){
+			error('The request to get your location timed out')
+			}else{
+			error('An unknown error occured while requesting your location')
+			}
+		}
+		function error(msg){
+		alert(msg);
+		}
+		function geo_success(position){
+		printLatLong(position.coords.latitude, position.coords.longitude);
+		}
+		//output lat and long
+		function printLatLong(lat,lng){
+		alert(lat + " " + lng);
+		$('#lat').html('<p>Lat: '+ lat +'</p>');
+		$('#long').html('<p>Long: '+ lng ='</p>');
+		}
+			
+	</script>
+	
+	
+</head>
+
+<body>
+	
+
+	<div id="content">
+ 		<h1>Working with Geolocation</h1>
+
+		<p>Testing the Geolocation API:</p>
+		<input type="button" id="go" value="Click Me To View Your Location" />
+
+		<p id = "lat">Latitude:</p>
+		<p id = "long">Longitude:</p>
+		
+	</div>
+		
+	<footer>This page was created by for <a href="http://moodle.ncirl.ie/course/view.php?id=987">ARIA</a> for testing the <a href = "http://www.w3.org/TR/geolocation-API/">Geolocation API</a> with <a href = "http://dev.opera.com/articles/view/how-to-use-the-w3c-geolocation-api/">Google maps</a></footer>
+	
+	
+	
+
+
+</body>
+</html>

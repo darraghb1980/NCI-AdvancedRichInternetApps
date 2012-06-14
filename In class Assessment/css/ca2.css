@@ -1,0 +1,38 @@
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin-top:10px;
+	}
+
+article{
+	border:2px solid;
+	border-radius:25px;
+	-moz-border-radius:25px; 
+	padding:10px;
+	margin-bottom:10px;
+	}
+
+/*didn't get the border image working*/	
+round
+{
+border-width:15px;
+width:250px;
+padding:10px 20px;
+-moz-border-image:url("images/kitten1.jpg") 30 30 round; /* Firefox */
+-webkit-border-image:url("kitten1.jpg") 30 30 round; /* Safari and Chrome */
+-o-border-image:url("kitten1.jpg") 30 30 round; /* Opera */
+border-image:url("kitten1.jpg") 30 30 round;
+}
+/*transition of image*/
+img{
+transition:width 2s;
+-moz-transition:width 2s; /* Firefox 4 */
+-webkit-transition:width 2s; /* Safari and Chrome */
+-o-transition:width 2s; /* Opera */
+}
+img:hover
+{
+width:300px;
+}
+
+	
+	

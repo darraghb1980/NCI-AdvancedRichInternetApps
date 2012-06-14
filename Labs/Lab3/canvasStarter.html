@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Canvas API Features Tester</title>
+
+
+
+	<style type="text/css" media="screen">
+		html,
+		body {
+			background: #ddd;
+			color: #777;
+			font: normal 12px/18px Helvetica, Verdana, Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		canvas{
+			border:1px dotted #333;;
+			
+		}
+	
+		#content {
+			background: #eee;
+			border: 2px outset #666;
+			margin: 20px auto 10px;
+			padding: 20px 40px 60px;
+			max-width:80%;
+			min-width: 800px;
+		}
+		#content h1+p:first-line {
+			font-weight: bold;
+			font-variant: small-caps;
+		}
+		
+		
+		h1 {
+			color: #0aa;
+			font: 27px/27px Helvetica, Arial, sans-serif;
+			margin: 0;
+			text-align:center;
+		}
+		
+	footer {
+			font-size: 11px;
+			font-style: oblique;
+			text-align:center;
+		}
+		footer a {
+			font-style: normal;
+		}
+	</style>
+</head>
+
+<body>
+	
+
+	<div id="content">
+ 		<h1>Animating the Canvas</h1>
+
+		<p><a href = "https://developer.mozilla.org/en/Canvas_tutorial/Basic_animations">These are the steps you need to take to draw a frame</a>:
+
+			<p>These are the steps you need to take to draw a frame:</p>
+			<ol> 
+				<li><strong>Clear the canvas</strong><br/> 
+				Unless the shapes you'll be drawing fill the complete canvas (for instance a backdrop image), you need to clear any shapes that have been drawn previously. The easiest way to do this is using the <code>clearRect</code> method.</li> 
+				<li><strong>Save the canvas state</strong><br/> 
+				If you're changing any setting (styles, transformations, etc) which affect the canvas state and want to make sure the original state is used each time a frame is drawn, you need to save it.</li> 
+				<li><strong>Draw animated shapes</strong><br/> 
+				The step where you do the actual frame rendering.</li> 
+				<li><strong>Restore the canvas state</strong><br/> 
+				If you've saved the state, restore it before drawing a new frame.</li>
+			</ol>
+
+
+
+		 </p>
+		
+		<canvas id = "myCanv" width = "700" height = "400"></canvas>
+
+	</div>
+		
+	<footer>This page was created by for <a href="http://moodle.ncirl.ie/course/view.php?id=987">ARIA</a></footer>
+	
+
+	
+	
+	<script>
+	
+		var myCanv = document.getElementById("myCanv");
+		var cntxt = myCanv.getContext('2d');
+		var myGrad = cntxt.createLinearGradient(0,0,700,400);
+		
+		window.requestAnimFrame = (function(callback){
+		    return window.requestAnimationFrame ||
+		    window.webkitRequestAnimationFrame ||
+		    window.mozRequestAnimationFrame ||
+		    window.oRequestAnimationFrame ||
+		    window.msRequestAnimationFrame ||
+		    function(callback){
+		        window.setTimeout(callback, 1000 / 60);
+		    };
+		})();
+		
+	
+		window.onload = function(){		    
+			//Setup and init
+			draw();
+			
+		};
+		
+		
+		function draw() {  
+
+		//Clear frame
+		cntxt.clearRect(0,0,700,400);
+		cntxt.save();
+		
+		
+		
+		//Draw frame
+		myGrad.addColorStop(0,"#FF0000");
+		myGrad.addColorStop(1,"#00FF00");
+		cntxt.fillStyle = myGrad;
+		cntxt.fillRect(0,0,700,400);
+		cntxt.save();
+		
+		
+		//Request new frame
+	    requestAnimFrame(function(){
+	        draw();
+	    });
+		drawGrid();	
+		drawText();
+		}
+		
+		function drawGrid(){
+		//Vertical lines
+			for (var x = 0.5; x < 700; x += 25) {
+			  cntxt.moveTo(x, 0);
+			  cntxt.lineTo(x, 400);
+			}
+		//Horizonatal lines
+			for (var y = 0.5; y < 400; y += 25) {
+			  cntxt.moveTo(0, y);
+			  cntxt.lineTo(2*y, y);
+			}
+			
+			//Draw in the lines
+			cntxt.strokeStyle = "#f0f";
+			cntxt.stroke();
+					
+			//Create a new path - in order to change the stroke
+			cntxt.beginPath();
+			cntxt.moveTo(0, 0);
+			cntxt.lineTo(700, 350);
+			
+			cntxt.strokeStyle = "#000";
+			cntxt.stroke();
+		}
+		function drawText(){
+			cntxt.fillStyle = "white";
+			cntxt.font = "80px Helvetica";
+			cntxt.fillText("Ara Sure!", 30, 350);
+		}
+
+
+	</script>	
+</body>
+</html>

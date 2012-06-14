@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>The 1140px Grid &middot; Fluid down to mobile</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<!-- 1140px Grid styles for IE -->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" /><![endif]-->
+
+	<!-- The 1140px Grid - http://cssgrid.net/ -->
+	<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+	
+	<!-- Your styles -->
+	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />
+	
+	<!--css3-mediaqueries-js - http://code.google.com/p/css3-mediaqueries-js/ - Enables media queries in some unsupported browsers-->
+	<script type="text/javascript" src="js/css3-mediaqueries.js"></script>
+	
+	<!--Delete embedded styles, just for example.-->
+	<style type="text/css">
+	
+	body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
+	
+	.container p {
+	color: #fff;
+	line-height: 100px;
+	background: #000;
+	text-align: center;
+	margin: 20px 0 0 0;
+	}
+	
+	
+	
+	</style>
+
+</head>
+
+
+<body>
+<!--
+<div class="container">
+	<div class="row">
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="onecol last">
+			<p>One</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="twocol last">
+			<p>Two columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="threecol">
+			<p>Three columns</p>
+		</div>
+		<div class="threecol">
+			<p>Three columns</p>
+		</div>
+		<div class="threecol">
+			<p>Three columns</p>
+		</div>
+		<div class="threecol last">
+			<p>Three columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="fourcol">
+			<p>Four columns</p>
+		</div>
+		<div class="fourcol">
+			<p>Four columns</p>
+		</div>
+		<div class="fourcol last">
+			<p>Four columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="onecol">
+			<p>One</p>
+		</div>
+		<div class="elevencol last">
+			<p>Eleven columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="twocol">
+			<p>Two columns</p>
+		</div>
+		<div class="tencol last">
+			<p>Ten columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="threecol">
+			<p>Three columns</p>
+		</div>
+		<div class="ninecol last">
+			<p>Nine columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="fourcol">
+			<p>Four columns</p>
+		</div>
+		<div class="eightcol last">
+			<p>Eight columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="fivecol">
+			<p>Five columns</p>
+		</div>
+		<div class="sevencol last">
+			<p>Seven columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="sixcol">
+			<p>Six columns</p>
+		</div>
+		<div class="sixcol last">
+			<p>Six columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="sevencol">
+			<p>Seven columns</p>
+		</div>
+		<div class="fivecol last">
+			<p>Five columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="eightcol">
+			<p>Eight columns</p>
+		</div>
+		<div class="fourcol last">
+			<p>Four columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="ninecol">
+			<p>Nine columns</p>
+		</div>
+		<div class="threecol last">
+			<p>Three columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="tencol">
+			<p>Ten columns</p>
+		</div>
+		<div class="twocol last">
+			<p>Two columns</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="elevencol">
+			<p>Eleven columns</p>
+		</div>
+		<div class="onecol last">
+			<p>One</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="threecol">
+			<p>Three columns</p>
+		</div>
+		<div class="sixcol">
+			<p>Six columns</p>
+		</div>
+		<div class="threecol last">
+			<p>Three columns</p>
+		</div>
+	</div>
+</div>
+-->
+<div class="container">
+	<div class="row">
+		<div class="twelvecol">
+			<img src="images/bg_header.jpg" />
+		</div>
+		
+	</div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="threecol">
+			<p>
+			<h2>Western journalists killed in Homs shelling</h2>
+  21:41US reporter Marie Colvin and French photographer Remi Ochlik were killed by shelling in the Syrian city of Homs this morning.
+</p>
+		</div>
+		<div class="threecol">
+			<p>
+			<h2>49 feared dead in Buenos Aires train crash</h2>
+  19:40At least 49 people are reported to have died and over 600 injured when a packed commuter train crashed at a station in Buenos Aires.</p>
+		</div>
+		<div class="threecol">
+			<p>
+			<h2>Two bodies found on separate farms in Carlow</h2>
+  19:44The bodies of two men, one of whom had suffered gunshot wounds, have been discovered on neighbouring farms in Co Carlow.</p>
+		</div>
+		<div class="threecol last">
+			<p>
+			<h2>€3bn sale to include parts of ESB, Bord Gáis</h2>
+20:07The Govt has announced that the sale of State assets will include the Bord Gáis Energy business and some of ESB's "non-strategic" power generation capacity.</p>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="fourcol">
+			<p><h2>Up to 240 Belmayne homes may need repair work,</h2>
+19:39A number of residents of Belmayne in Dublin may have to move out of their homes so that fire safety defects can be repaired.</p>
+		</div>
+		<div class="fourcol">
+			<p><h2>DCC criticised over waste transfer notice</h2>
+20:36The Office of the Data Protection Commissioner has criticised the lack of notice given by Dublin City Council to customers about the transfer of its waste collection service.</p>
+		</div>
+		<div class="fourcol last">
+			<p><h2>Comedian Frank Carson dies aged 85</h2>
+21:5685-year-old Belfast-born comedian Frank Carson has died after a battle with stomach cancer.</p>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="fivecol">
+			<img src="images/0004141b-232.jpg"/>
+		</div>
+		<div class="sevencol last">
+			<img src="images/logo_news_printable.jpg"/>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="twelvecol">
+			<img src="images/bg_header.jpg" />
+		</div>
+		
+	</div>
+</div>
+
+
+		
+
+
+
+
+</body>
+
+</html>

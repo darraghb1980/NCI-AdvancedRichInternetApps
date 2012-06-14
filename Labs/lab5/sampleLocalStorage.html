@@ -1,0 +1,98 @@
+
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<title>localStorage sample</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script>
+	$(document).ready(function() {
+            if (typeof(localStorage) == 'undefined' ) {
+                alert('Your browser does not support HTML5 localStorage. Try upgrading.');
+            }
+            else {
+                alert('We have local storage! Let\'s log some stuff!');
+                
+                // This function will fire when the submit button is clicked
+                // It should take the data from the form & store it in local storage
+                $("#logForm").submit(function(){
+                    var values = new Array();
+                    var newDate = new Date();
+                    var itemId = newDate.getTime();
+                    
+                    var hours = $("input[name='hours']").val();
+                    var project = $("input[name='project']").val();
+    
+                    values.push(project);
+    
+                    // If the project is not null, lets add it to local storage
+                    if (project != "") {
+                        try {
+                            // 
+                            // STEP TWO - SAVE THE ITEM!
+                            // 
+                            // use the local storage "setItem" function to add the new project
+                        } catch (e) {
+                            if (e == QUOTA_EXCEEDED_ERR) {
+                                alert('Quota exceeded!');
+                            }
+                        }
+                    } else {
+                        alert("All fields are required.");
+                    }
+                });
+            }
+        });
+        
+    function getAllItems() {
+        var timeLog = ""; //the variable that will hold our html
+        var i = 0;
+        var logLength = localStorage.length-1; //how many items are in the database starting with zero
+
+        // now we are going to loop through each item in the database
+        // 
+        // STEP THREE - LOOP THROUGH THE ARRAY!
+        // 
+        // How do we loop through each item of an array?
+        //
+        // Once you've figured out how to iterate through the array
+        // for each item, get its value using the logic:
+        //     var myItem = localStorage.key(i);
+        // Use browser debugging tools or JavaScript alerts to see what the values are that local storage is returning.
+
+            // 
+            // STEP FOUR - ADD YOUR VALUES FROM THE LOOP TO THE TIMELOG
+            // 
+            //now that we have the item, lets add it as a list item
+            // To append an item you can use something like "
+            //    timeLog += 'INSERT YOUR NEW VALUES FROM THE FOR LOOP HERE';
+
+        //if there were no items in the database
+        if (timeLog == "")
+            timeLog = '<li class="empty">Log Currently Empty</li>';
+
+        $("#theLog").html(timeLog); //update the ul with the list items
+    }
+	</script>
+</head>
+    
+<body>
+        
+<form id="logForm" method="post">
+    <input type="text" name="project" value="Project Name">
+   <!--
+   ***********************
+   START HERE!
+   ***********************
+   We need another input element. Call it "hours" and let it take a number.
+   This element will be how many hours you spent on the projects you're logging
+   -->
+    
+    <input type="number" name="hours" value="Hours" class="shortField">
+   <input type="submit" value="Log Time">
+</form>
+
+</body>
+</html>

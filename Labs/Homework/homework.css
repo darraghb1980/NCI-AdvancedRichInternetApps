@@ -1,0 +1,24 @@
+h1{
+color: green;
+font-family: serif	;
+}
+a:link {text-decoration:none;}    /* unvisited link */
+a:visited {text-decoration:none;} /* visited link */
+
+body{
+background-color: #A9A9A9;
+}
+
+p.paraCentre {text-align:center;}
+
+img
+{
+border-style:solid;
+border-color:brown;
+}
+
+#email
+{
+font-family:verdana;
+background-color:orange;
+} 

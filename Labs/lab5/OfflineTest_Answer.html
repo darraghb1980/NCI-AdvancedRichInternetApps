@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=620">
+<title>HTML5 Demo: navigator.onLine testing</title>
+<body>
+    <header>
+      <h1>navigator.onLine testing</h1>
+    </header>
+
+<article>
+  <p>Current network status: <span id="status">checking...</span></p>
+  <p>A timer is constantly polling the navigator.onLine property, which is typically switched via File -> Work Offline</p>
+</article>
+<script>
+var statusElem = document.getElementById('status')
+
+setInterval(function () {
+  statusElem.className = navigator.onLine ? 'online' : 'offline';
+  statusElem.innerHTML = navigator.onLine ? 'online' : 'offline';  
+}, 250);
+</script>
+
+</body>
+</html>
